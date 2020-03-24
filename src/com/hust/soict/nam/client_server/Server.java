@@ -8,7 +8,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Arrays;
 
+import com.hust.soict.nam.helper.BubbleSort;
+import com.hust.soict.nam.helper.InsertionSort;
 import com.hust.soict.nam.helper.SelectionSort;
+import com.hust.soict.nam.helper.ShellSort;
 
 public class Server {
 	public static void main(String args[]) throws IOException {
@@ -54,7 +57,7 @@ public class Server {
 						i++;
 					}
 					// Sort the numbers in this int array
-					new SelectionSort().sort(intarr);
+					new ShellSort().sort(intarr);
 					// Convert the int array to String
 					String strArray[] = Arrays.stream(intarr).mapToObj(String::valueOf).toArray(String[]::new);
 					// Send the result to Client
