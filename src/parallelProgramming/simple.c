@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <io.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <pthread.h>
 int shared = 10;
@@ -8,7 +8,9 @@ void *fun(void *args)
 {
   time_t start = time(NULL);
   time_t end = start + 5; //run for 5 seconds
-  while (start != end) {
+  while (start < end) {
+    sleep(1);   // sleep 1s.
+    start = time(NULL);
     shared++;
   }
   return NULL;
